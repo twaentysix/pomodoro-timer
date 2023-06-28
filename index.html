@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PomodoroTimer</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="hidden">PomodoroTimer</h1>
+
+        <dialog id="help">
+            <div id="info" class="frame">
+                <h3>Wie funktioniert der Pomodoro-Timer?</h3>
+                <ol>
+                    <li>Timer starten</li>
+                    <li>25 Minuten konzentriert und ohne Ablenkung arbeiten</li>
+                    <li>Nach Ablauf des Timers ert&ouml;nt eine Benachrichtigungsmelodie. Daraufhin m&uuml;ssen Sie eine 5-min&uuml;tige Pause machen. Im Idealfall widmet man sich keinerlei anderen T&auml;tigkeiten.</li>
+                    <li>Wieder 25 Min konzentriert arbeiten.</li>
+                    <li>Das Ganze wird so lange wiederholt, bis man 4x 25 Min gearbeitet hat.</li>
+                    <li>Gro&szlig;e Pause machen (30-60 Minuten)</li>
+                    <li>Bei Bedarf eine neue Session (4x 25 Min) starten</li>
+                </ol>
+                <button class="option" onclick="help.close()" aria-label="Hilfe schlie&szlig;en">Okay verstanden!</button>
+            </div>
+        </dialog>
+
+        <audio id="audio">
+            <source src="sound/ring.ogg" type="audio/ogg">
+        </audio>
+
+        <main>
+            <div class="frame-container">
+                <div class="frame">
+                    <div class="status">
+                        <h2 id="statusinfo">Timer nicht aktiv</h2>
+                        <p>Fokusphase <span id="sessionCounter">1</span> von 4</p>
+                    </div>
+                    <div class="timer-container" id="timer">
+                        <span id="minutes">25</span>
+                        <span id="divider">:</span>
+                        <span id="seconds">00</span>
+                    </div>
+                    <div class="controls">
+                        <button class="option" id="helpButton" onclick="showHelp()" aria-label="Wie funktioniert der Pomodoro Timer?">
+                            Wie funktioniert der Timer?
+                        </button>
+                        <div class="options">
+                            <button onclick="startTimer()" id="start" class="option" aria-label="Pomodoro Timer starten">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="symbol" viewBox="0 0 16 16">
+                                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                                </svg>
+                            </button>
+                            <button onclick="pauseTimer()" id="pause" class="option disabled" aria-label="Pomodoro Timer pausieren">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="symbol" viewBox="0 0 16 16">
+                                    <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>
+                                </svg>
+                            </button>
+                            <button onclick="resetApp()" id="abort" class="option disabled" aria-label="Pomodoro Timer zur&uuml;cksetzen">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="symbol" viewBox="0 0 16 16">
+                                    <path d="M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

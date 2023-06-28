@@ -1,0 +1,289 @@
+@import url(./webfonts.css);
+
+/* Benutzerdefinierte CSS-Variablen: */
+:root {
+    /* Farben */
+    --dark0:  hsl(165, 10%, 5%);
+    --dark1: hsl(165, 10%, 9%);
+    --dark2: hsl(165, 10%, 11%);
+    --dark3: hsl(165, 10%, 15%);
+    --dark4: hsl(165, 10%, 17%);
+    --dark5: hsl(165, 10%, 19%);
+    --dark6: hsl(165, 10%, 23%);
+
+    --light1: hsl(0, 0%, 99%);
+    --light2: hsl(0, 0%, 91%);
+    --light3: hsl(0, 0%, 81%);
+
+    --accentcolor: hsl(165, 0%, 93%);
+    --accentcolor2: hsl(165, 80%, 70%);
+
+    /* Typografische Grundeigenschaften: */
+    --mainfont: 'Nunito Sans', sans-serif;
+    --timerfont: 'Source Code Pro', sans-serif;
+    --normal: 400;
+    --bold: 700;
+    --extrabold: 900;
+    --medium: 500;
+}
+
+html {
+    font-family: var(--mainfont);
+    font-size: 12px;
+}
+
+@media screen and (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    overflow-x: hidden;
+    background-color: var(--dark0);
+    color: var(--light1);
+    line-height: 1.6;
+}
+
+p, span, a, li, h5 {
+    font-size: 1rem;
+}
+
+h1, h2, h3, h4 {
+    font-weight: var(--bold);
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accentcolor);
+    font-weight: var(--bold);
+}
+
+a:before {
+    position: relative;
+    display: block;
+    content: '';
+    top: 1.4rem;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background-color: var(--accentcolor);
+    transition: width .3s ease-in-out;
+}
+
+a:hover:before {
+    width: 100%;
+}
+
+.hidden {
+    visibility: hidden;
+    pointer-events: none;
+    height: 0;
+    width: 0;
+    margin: 0;
+}
+
+
+.wrapper {
+    margin-inline: 5vw;
+}
+
+/* Spezifische Styles */
+
+#statusinfo {
+    text-align: center;
+    color: var(--accentcolor2);
+}
+
+.frame-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 1rem;
+    height: 95vh;
+}
+
+.frame {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    background-color: var(--dark0);
+    width: 100%;
+    height: 100%;
+}
+
+.status {
+    text-align: center;
+}
+
+
+@media screen and (min-width: 1200px) {
+    .frame-container {
+        margin-block: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        width: auto;
+        align-items: center;
+    }
+    .frame {
+        height: fit-content;
+        max-width: 30rem;
+        border-radius: 5rem;
+        background-color: var(--dark2);
+        padding: 3rem;
+    }
+}
+
+#help {
+    background-color: transparent;
+    border: none;
+    backdrop-filter: blur(16px);
+    height: 100%;
+    width: 100%;
+    transition: all .3s ease-in-out;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+#help[open] {
+    animation: fadeIn .5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#info {
+    justify-content: space-between;
+    color: var(--accentcolor);
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: fit-content;
+    max-width: 100%;
+    margin: 1rem;
+    padding: 3rem;
+    z-index: 3;
+}
+
+@media screen and (min-width: 1200px) {
+    #info {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 60rem;
+        height: fit-content;
+    }
+}
+
+#helpButton {
+    margin-block: 1rem;
+}
+
+#info ol li::marker {
+    font-size: 2rem;
+    font-weight: var(--bold);
+    color: var(--accentcolor2);
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    min-height: 1rem;
+    background-color: var(--dark3);
+    border: 2px solid var(--dark4);
+    height: fit-content;
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    border-radius: 5rem;
+}
+
+.timer-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding-block: 2rem;
+}
+
+.timer-container span {
+    font-family: var(--timerfont);
+    font-weight: var(--bold);
+    font-size: 8rem;
+    text-align: center;
+    color: var(--accentcolor2);
+}
+
+.option {
+    font-family: var(--mainfont);
+    font-size: 1rem;
+    color: var(--light1);
+    background-color: var(--dark5);
+    border: none;
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+    border-radius: 3rem;
+    min-width: 4rem;
+    transition: all .3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--bold);
+}
+
+.option.disabled {
+    background-color: var(--dark1);
+    opacity: .3;
+    pointer-events: none;
+}
+
+.option:hover {
+    background-color: var(--dark6);
+}
+
+.option:active {
+    background-color: var(--dark1);
+}
+
+.symbol {
+    fill: var(--light1);
+    height: 2rem;
+    aspect-ratio: 1/1;
+}
+
+
