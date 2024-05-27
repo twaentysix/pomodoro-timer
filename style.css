@@ -3,24 +3,24 @@
 /* Benutzerdefinierte CSS-Variablen: */
 :root {
     /* Farben */
-    --dark0:  hsl(165, 10%, 5%);
-    --dark1: hsl(165, 10%, 9%);
-    --dark2: hsl(165, 10%, 11%);
-    --dark3: hsl(165, 10%, 15%);
-    --dark4: hsl(165, 10%, 17%);
-    --dark5: hsl(165, 10%, 19%);
-    --dark6: hsl(165, 10%, 23%);
+    --dark0:  hsl(270, 10%, 5%);
+    --dark1: hsl(270, 10%, 9%);
+    --dark2: hsl(270, 10%, 11%);
+    --dark3: hsl(270, 10%, 15%);
+    --dark4: hsl(270, 10%, 17%);
+    --dark5: hsl(270, 10%, 19%);
+    --dark6: hsl(270, 10%, 23%);
 
     --light1: hsl(0, 0%, 99%);
     --light2: hsl(0, 0%, 91%);
     --light3: hsl(0, 0%, 81%);
 
-    --accentcolor: hsl(165, 0%, 93%);
-    --accentcolor2: hsl(165, 80%, 70%);
+    --accentcolor: hsl(270, 0%, 93%);
+    --accentcolor2: hsl(270, 80%, 70%);
 
     /* Typografische Grundeigenschaften: */
-    --mainfont: 'Nunito Sans', sans-serif;
-    --timerfont: 'Source Code Pro', sans-serif;
+    --mainfont: 'Satoshi Variable', sans-serif;
+    --timerfont: 'Space Grotesk', sans-serif;
     --normal: 400;
     --bold: 700;
     --extrabold: 900;
@@ -29,7 +29,7 @@
 
 html {
     font-family: var(--mainfont);
-    font-size: 12px;
+    font-size: 16px;
 }
 
 @media screen and (min-width: 768px) {
@@ -150,7 +150,7 @@ a:hover:before {
     .frame {
         height: fit-content;
         max-width: 30rem;
-        border-radius: 5rem;
+        border-radius: 3rem;
         background-color: var(--dark2);
         padding: 3rem;
     }
