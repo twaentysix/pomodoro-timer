@@ -19,7 +19,7 @@
     --accentcolor2: hsl(270, 80%, 70%);
 
     /* Typografische Grundeigenschaften: */
-    --mainfont: 'Satoshi Variable', sans-serif;
+    --mainfont: 'Satoshi-Variable', sans-serif;
     --timerfont: 'Space Grotesk', sans-serif;
     --normal: 400;
     --bold: 700;
