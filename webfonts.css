@@ -176,22 +176,14 @@
        font-style: italic;
 }
 
-/* Space Grotesk */
-
-/* space-grotesk-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Space Grotesk';
+  font-family: 'ClashDisplay-Variable';
+  src: url('fonts/ClashDisplay-Variable.woff2') format('woff2'),
+       url('fonts/ClashDisplay-Variable.woff') format('woff'),
+       url('fonts/ClashDisplay-Variable.eot') format('eot'),
+       url('fonts/ClashDisplay-Variable.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
   font-style: normal;
-  font-weight: 400;
-  src: url('fonts/space-grotesk-v16-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* space-grotesk-700 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 700;
-  src: url('fonts/space-grotesk-v16-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 

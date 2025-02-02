@@ -41,11 +41,14 @@ const startTimer = () => {
         abort.classList.remove("disabled");
 
         statusinfo.innerHTML = "Session ist aktiv";
-        statusinfo.style.color = "var(--accentcolor2)";
 
         minutes.style.color = "var(--accentcolor)";
         divider.style.color = "var(--accentcolor)";
         seconds.style.color = "var(--accentcolor)";
+
+        minutes.style.fontWeight = "var(--bold)";
+        divider.style.fontWeight = "var(--bold)";
+        seconds.style.fontWeight = "var(--bold)";
 
         document.title = "Timer ist aktiv!";
 
@@ -95,6 +98,10 @@ const pauseTimer = () => {
     divider.style.color = "var(--accentcolor2)";
     seconds.style.color = "var(--accentcolor2)";
 
+    minutes.style.fontWeight = "var(--regular)";
+    divider.style.fontWeight = "var(--regular)";
+    seconds.style.fontWeight = "var(--regular)";
+
     statusinfo.innerHTML = "Session ist pausiert";
 
     cancelAnimationFrame(sessionTimerId);
@@ -114,6 +121,10 @@ const stopTimer = () => {
 
     statusinfo.innerHTML = "Session wurde beendet";
     document.title = "Pomodoro Timer"
+
+    minutes.style.fontWeight = "var(--regular)";
+    divider.style.fontWeight = "var(--regular)";
+    seconds.style.fontWeight = "var(--regular)";
 
     cancelAnimationFrame(sessionTimerId);
     sessionDuration = 1501000;
@@ -149,9 +160,9 @@ const startBreakTimer = () => {
 
     statusinfo.innerHTML = "Jetzt Pause machen";
 
-    minutes.style.color = "var(--accentcolor)";
-    divider.style.color = "var(--accentcolor)";
-    seconds.style.color = "var(--accentcolor)";
+    minutes.style.color = "var(--white)";
+    divider.style.color = "var(--white)";
+    seconds.style.color = "var(--white)";
 
     document.title = "Jetzt Pause machen!"
 
@@ -194,6 +205,10 @@ const resetApp = () => {
     minutes.style.color = "var(--accentcolor2)";
     divider.style.color = "var(--accentcolor2)";
     seconds.style.color = "var(--accentcolor2)";
+
+    minutes.style.fontWeight = "var(--regular)";
+    divider.style.fontWeight = "var(--regular)";
+    seconds.style.fontWeight = "var(--regular)";
 
     sessionCounter = 1;
     sessionCounterFrontend.innerHTML = sessionCounter;

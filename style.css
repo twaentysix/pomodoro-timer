@@ -3,26 +3,21 @@
 /* Benutzerdefinierte CSS-Variablen: */
 :root {
     /* Farben */
-    --dark0:  hsl(270, 10%, 5%);
-    --dark1: hsl(270, 10%, 9%);
-    --dark2: hsl(270, 10%, 11%);
-    --dark3: hsl(270, 10%, 15%);
-    --dark4: hsl(270, 10%, 17%);
-    --dark5: hsl(270, 10%, 19%);
-    --dark6: hsl(270, 10%, 23%);
+    --dark: hsl(0, 0%, 4%);
+	--dark2: hsl(0, 0%, 7%);
+	--white: hsl(0, 0%, 100%);
 
-    --light1: hsl(0, 0%, 99%);
-    --light2: hsl(0, 0%, 91%);
-    --light3: hsl(0, 0%, 81%);
+    --accentcolor2: hsl(161, 100%, 39%);
+	--accentcolor: hsl(161, 100%, 48%);
 
-    --accentcolor: hsl(270, 0%, 93%);
-    --accentcolor2: hsl(270, 80%, 70%);
+    --accentcolor3: hsl(161, 100%, 22%);
+	--accentcolor4: hsl(161, 100%, 20%);
 
     /* Typografische Grundeigenschaften: */
-    --mainfont: 'Satoshi-Variable', sans-serif;
-    --timerfont: 'Space Grotesk', sans-serif;
+    --mainfont: 'ClashDisplay-Variable', sans-serif;
+    --timerfont: 'ClashDisplay-Variable', sans-serif;
     --normal: 400;
-    --bold: 700;
+    --bold: 600;
     --extrabold: 900;
     --medium: 500;
 }
@@ -40,17 +35,13 @@ html {
 
 body {
     overflow-x: hidden;
-    background-color: var(--dark0);
-    color: var(--light1);
+    background-color: var(--dark);
+    color: var(--white);
     line-height: 1.6;
 }
 
 p, span, a, li, h5 {
     font-size: 1rem;
-}
-
-h1, h2, h3, h4 {
-    font-weight: var(--bold);
 }
 
 h1 {
@@ -108,7 +99,8 @@ a:hover:before {
 
 #statusinfo {
     text-align: center;
-    color: var(--accentcolor2);
+    color: var(--accentcolor);
+    font-weight: var(--regular);
 }
 
 .frame-container {
@@ -126,7 +118,7 @@ a:hover:before {
     flex-direction: column;
     align-items: center;
     margin: 0;
-    background-color: var(--dark0);
+    
     width: 100%;
     height: 100%;
 }
@@ -149,15 +141,20 @@ a:hover:before {
     }
     .frame {
         height: fit-content;
-        max-width: 30rem;
+        max-width: 450px;
         border-radius: 3rem;
-        background-color: var(--dark2);
         padding: 3rem;
+        background-image: linear-gradient(
+            45deg,
+            rgba(255, 255, 255, .01),
+            rgba(255, 255, 255, .03)
+        );
+        border: 2px solid rgba(128, 128, 128, .05);
     }
 }
 
 #help {
-    background-color: transparent;
+    background-color: var(--dark);
     border: none;
     backdrop-filter: blur(16px);
     height: 100%;
@@ -186,8 +183,8 @@ a:hover:before {
 
 #info {
     justify-content: space-between;
-    color: var(--accentcolor);
-    border: none;
+    color: var(--white);
+    border: 2px solid rgba(128, 128, 128, .07);
     position: absolute;
     top: 0;
     left: 0;
@@ -197,6 +194,10 @@ a:hover:before {
     margin: 1rem;
     padding: 3rem;
     z-index: 3;
+
+    h3 {
+        font-weight: var(--regular)
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -207,11 +208,27 @@ a:hover:before {
         transform: translate(-50%, -50%);
         max-width: 60rem;
         height: fit-content;
+
+        h3 {
+            text-align: center;
+        }
     }
 }
 
 #helpButton {
     margin-block: 1rem;
+    border: none;
+    background: none;
+    color: var(--white);
+    transition: all .2s ease;
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+    padding-block: .5rem;
+
+    &:hover {
+        color: var(--accentcolor);
+        border-bottom: 1px solid var(--accentcolor);
+    }
 }
 
 #info ol li::marker {
@@ -244,18 +261,22 @@ a:hover:before {
 
 .timer-container span {
     font-family: var(--timerfont);
-    font-weight: var(--bold);
+    font-weight: var(--regular);
     font-size: 8rem;
     text-align: center;
-    color: var(--accentcolor2);
+    color: var(--accentcolor);
 }
 
 .option {
     font-family: var(--mainfont);
     font-size: 1rem;
-    color: var(--light1);
-    background-color: var(--dark5);
-    border: none;
+    color: var(--dark);
+    background-image: linear-gradient(
+        45deg,
+        var(--accentcolor),
+        var(--accentcolor3)
+    );
+    border: 2px solid rgba(255, 255, 255, .09);
     padding-inline: 1.5rem;
     padding-block: 1rem;
     border-radius: 3rem;
@@ -267,13 +288,13 @@ a:hover:before {
 }
 
 .option.disabled {
-    background-color: var(--dark1);
-    opacity: .3;
-    pointer-events: none;
+    background-color: var(--white);
+    pointer-events: not-allowed;
 }
 
 .option:hover {
-    background-color: var(--dark6);
+    background-color: var(--white);
+    cursor: pointer;
 }
 
 .option:active {
@@ -281,7 +302,7 @@ a:hover:before {
 }
 
 .symbol {
-    fill: var(--light1);
+    fill: var(--dark);
     height: 2rem;
     aspect-ratio: 1/1;
 }
